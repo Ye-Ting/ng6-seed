@@ -1,4 +1,3 @@
-
 ## 安装命令
 0. clone repo;
 1. npm install -g cnpm --registry=https://registry.npm.taobao.org
@@ -13,3 +12,6 @@
 ## 构建命令
 
 1. gulp webpack
+
+
+## Docker化
