@@ -23,10 +23,9 @@ COPY . /app/
 
 ENV APP_DEBUG=true
 ENV NODE_ENV=production
-RUN gulp build
+RUN gulp webpack
 
 EXPOSE 80
 
-CMD mkdir -p /usr/share/nginx/html/dist && \
- cp -r ./dist/* /usr/share/nginx/html/dist/ && \
+CMD cp -r ./dist/* /usr/share/nginx/html/ && \
  nginx -g 'daemon off;'
