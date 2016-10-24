@@ -50,6 +50,22 @@ gulp.task('webpack', ['clean'], (cb) => {
   const config = require('./webpack.dist.config');
   config.entry.app = paths.entry;
 
+
+  var plugins = config.plugins;
+  var webpackEnv = {};
+
+  // 在这里插入环境变量
+  Object.keys(process.env).forEach(function(key) {
+    webpackEnv[key] = JSON.stringify(process.env[key]);
+  });
+
+  webpackEnv['NODE_ENV'] = '"production"';
+
+  plugins.push( new webpack.DefinePlugin({
+    'process.env': webpackEnv,
+  }));
+
+
   webpack(config, (err, stats) => {
     if(err)  {
       throw new gutil.PluginError("webpack", err);
