@@ -16,8 +16,8 @@ RUN apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 573BFD6B3D8FBC64107
 WORKDIR /app
 
 COPY ./package.json /app/
-#RUN npm install -q
-RUN cnpm install -q
+RUN npm install -q
+#RUN cnpm install -q
 
 COPY . /app/
 
