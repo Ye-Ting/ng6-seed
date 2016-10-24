@@ -12,6 +12,7 @@ RUN apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 573BFD6B3D8FBC64107
   && npm install -g -q npm && npm install -g -q gulp
 #  && npm install -g cnpm --registry=https://registry.npm.taobao.org && cnpm install -g -q gulp
 
+COPY nginx.conf /etc/nginx/nginx.conf
 
 WORKDIR /app
 
